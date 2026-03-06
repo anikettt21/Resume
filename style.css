@@ -198,23 +198,6 @@ nav {
 }
 .theme-btn:hover { background: var(--glow); color: var(--accent); border-color: var(--accent); }
 
-/* Print btn */
-.print-btn {
-  display: flex; align-items: center; gap: 6px;
-  font-size: 0.75rem; font-weight: 600;
-  color: var(--text-muted);
-  background: var(--surface);
-  border: 1px solid var(--border2);
-  border-radius: 8px;
-  padding: 0 12px;
-  height: 36px;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: var(--sans);
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-.print-btn:hover { background: var(--glow); color: var(--accent); border-color: var(--accent); }
 
 /* Hamburger */
 .hamburger {
@@ -679,126 +662,8 @@ footer {
 .scroll-top.visible { opacity: 1; transform: none; }
 .scroll-top:hover { color: var(--accent); border-color: var(--accent); background: var(--glow); }
 
-/* ── PRINT ── */
-@media print {
-  /* Hide all interactive / decorative elements */
-  #particles-canvas,
-  .spotlight,
-  .scroll-top,
-  nav,
-  .mobile-menu,
-  .theme-btn,
-  .print-btn,
-  .hamburger,
-  .typewriter-cursor,
-  .hero-eyebrow::before,
-  .prof-bar-wrap { display: none !important; }
 
-  /* Reset page */
-  @page { margin: 18mm 16mm; }
-  html, body {
-    background: #fff !important;
-    color: #111 !important;
-    font-size: 11pt !important;
-    line-height: 1.6 !important;
-  }
 
-  /* Force all text to be visible — override CSS variables */
-  *, *::before, *::after {
-    color: #111 !important;
-    background: transparent !important;
-    border-color: #ccc !important;
-    box-shadow: none !important;
-    text-shadow: none !important;
-    -webkit-print-color-adjust: exact;
-    print-color-adjust: exact;
-  }
-
-  /* Fix gradient name — restore solid black text */
-  .hero-name span {
-    background: none !important;
-    -webkit-background-clip: unset !important;
-    background-clip: unset !important;
-    -webkit-text-fill-color: #111 !important;
-    color: #111 !important;
-  }
-
-  /* Layout */
-  .container { max-width: 100%; padding: 0 16px; }
-  .hero { padding: 16px 0 12px; border-bottom: 1.5px solid #222 !important; }
-
-  /* Make headings clearly dark */
-  .hero-name { font-size: 28pt !important; color: #000 !important; }
-  .section-title { font-size: 14pt !important; color: #000 !important; }
-  .project-name, .edu-degree { color: #000 !important; }
-  .hero-eyebrow, .section-label { color: #444 !important; }
-
-  /* Body text — readable grey */
-  .summary-text, .project-desc, .edu-school,
-  .hero-tagline, .footer-avail, .footer-copy,
-  .skill-pill, .prof-bar-label, .stat-label { color: #333 !important; }
-
-  /* Accent-colored items — make dark */
-  .stat-number, .edu-year, .nav-available,
-  .section-label, .skill-card-label,
-  .tech-tag, .badge, .badge-live,
-  .hero-eyebrow, .project-url { color: #333 !important; }
-
-  /* Cards — thin border, white bg, no radius shadow */
-  .project-card, .skill-card, .summary-card, .edu-card {
-    background: #fff !important;
-    border: 1px solid #bbb !important;
-    border-radius: 6px !important;
-    padding: 12px 16px !important;
-    break-inside: avoid;
-  }
-  /* Remove the decorative top gradient bar */
-  .summary-card::before, .edu-card::before,
-  .project-card::before { display: none !important; }
-
-  /* Sections */
-  section {
-    padding: 16px 0 !important;
-    border-bottom: 1px solid #ddd !important;
-  }
-  section:last-of-type { border-bottom: none !important; }
-
-  /* Section header line */
-  .section-line { background: #ccc !important; }
-  .section-header { margin-bottom: 16px !important; }
-
-  /* Hero stats */
-  .hero-stats { margin: 12px 0 16px !important; gap: 20px !important; }
-  .stat-sep { background: #ccc !important; }
-
-  /* Contacts */
-  .contact-item {
-    background: #f5f5f5 !important;
-    border: 1px solid #ccc !important;
-    color: #222 !important;
-    padding: 4px 10px !important;
-  }
-
-  /* Skill pills & tech tags */
-  .skill-pill, .tech-tag {
-    background: #f0f0f0 !important;
-    border: 1px solid #ccc !important;
-    color: #333 !important;
-  }
-
-  /* Grids — single column for print */
-  .projects-grid, .skills-grid { grid-template-columns: 1fr !important; gap: 10px !important; }
-
-  /* Show fade-up elements (override animation hidden state) */
-  .fade-up { opacity: 1 !important; transform: none !important; }
-
-  /* Page breaks */
-  #projects, #skills, #education { page-break-before: auto; }
-  .project-card, .skill-card, .edu-card { page-break-inside: avoid; }
-
-  /* Footer */
-  footer { padding: 12px 0 !important; border-top: 1px solid #ccc !important; }
-}
 
 /* ── RESPONSIVE ── */
 @media (max-width: 720px) {
