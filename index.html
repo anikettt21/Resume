@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aniket Devidas Gade — Resume</title>
+  <meta name="description" content="Independent Developer & AI-Assisted Builder. Full-stack SaaS products, modern web applications, and rapid prototyping." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --off-black: #111111;
+      --dark: #1a1a1a;
+      --mid: #555555;
+      --muted: #888888;
+      --light: #cccccc;
+      --pale: #e8e8e8;
+      --bg: #f9f8f6;
+      --white: #ffffff;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--black);
+      min-height: 100vh;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--pale);
+    }
+    .nav-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+    }
+    .nav-logo {
+      font-family: var(--serif);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--black);
+      letter-spacing: 0.01em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 0;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 4px;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--black); }
+    .nav-available {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--mid);
+      letter-spacing: 0.04em;
+      border: 1px solid var(--pale);
+      border-radius: 4px;
+      padding: 4px 12px;
+    }
+
+    /* ─── MAIN LAYOUT ─── */
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--pale);
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.6rem, 5.5vw, 3.8rem);
+      font-weight: 700;
+      color: var(--black);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      color: var(--mid);
+      font-weight: 400;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+    .hero-contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.82rem;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-item:hover { color: var(--black); }
+    .contact-item svg { flex-shrink: 0; opacity: 0.6; }
+    .contact-sep {
+      color: var(--light);
+      font-size: 0.8rem;
+      align-self: center;
+    }
+
+    /* ─── SECTION ─── */
+    section {
+      padding: 52px 0;
+      border-bottom: 1px solid var(--pale);
+    }
+    section:last-of-type { border-bottom: none; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--black);
+      letter-spacing: 0.01em;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: var(--pale);
+    }
+
+    /* ─── SUMMARY ─── */
+    .summary-text {
+      font-size: 0.97rem;
+      color: var(--mid);
+      line-height: 1.8;
+      max-width: 660px;
+    }
+    .summary-text strong {
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    /* ─── PROJECTS ─── */
+    .project-item {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--pale);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 16px 32px;
+      transition: opacity 0.2s;
+    }
+    .project-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .project-item:first-child { padding-top: 0; }
+    .project-item:hover { opacity: 0.85; }
+    .project-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .project-name {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--black);
+    }
+    .project-featured {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border: 1px solid var(--light);
+      border-radius: 3px;
+      padding: 2px 7px;
+    }
+    .project-url {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      font-family: var(--mono);
+      align-self: start;
+      padding-top: 3px;
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .project-url:hover { color: var(--black); text-decoration: underline; }
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .project-tech {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tech-tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      font-family: var(--mono);
+      color: var(--muted);
+      background: var(--bg);
+      border: 1px solid var(--pale);
+      border-radius: 3px;
+      padding: 2px 8px;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-list {
+      display: grid;
+      gap: 14px;
+    }
+    .skill-row {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 16px;
+      align-items: baseline;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--pale);
+    }
+    .skill-row:last-child { border-bottom: none; }
+    .skill-row:first-child { padding-top: 0; }
+    .skill-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .skill-values {
+      font-size: 0.875rem;
+      color: var(--mid);
+    }
+
+    /* ─── EDUCATION ─── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .edu-degree {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 4px;
+    }
+    .edu-school {
+      font-size: 0.875rem;
+      color: var(--mid);
+    }
+    .edu-year {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      margin-top: 3px;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      border-top: 1px solid var(--pale);
+      padding: 36px 0;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .footer-avail {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
+    }
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--light);
+    }
+
+    /* ─── FADE IN ─── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 600px) {
+      .nav-links, .nav-available { display: none; }
+      .project-item { grid-template-columns: 1fr; }
+      .skill-row { grid-template-columns: 1fr; gap: 4px; }
+      .hero { padding: 48px 0 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="nav-inner">
+      <div class="nav-logo">Aniket Devidas Gade</div>
+      <div class="nav-links">
+        <a href="#summary">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </div>
+      <div class="nav-available">Available Now</div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO -->
+    <header class="hero fade-in">
+      <div class="hero-eyebrow">Independent Developer &nbsp;·&nbsp; AI-Assisted Builder</div>
+      <h1 class="hero-name">Aniket<br />Devidas Gade</h1>
+      <p class="hero-tagline">
+        Building full-stack products fast using AI-assisted development. Shipped a live SaaS, multiple web apps, and tools that reach real users.
+      </p>
+      <div class="hero-contacts">
+        <a class="contact-item" href="mailto:aniketttgade21@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          aniketttgade21@gmail.com
+        </a>
+        <span class="contact-sep">·</span>
+        <a class="contact-item" href="tel:+918265004770">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.5a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.79h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.4a16 16 0 0 0 6 6l1.77-1.77a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +91 8265004770
+        </a>
+        <span class="contact-sep">·</span>
+        <span class="contact-item">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          Pune, India
+        </span>
+        <span class="contact-sep">·</span>
+        <a class="contact-item" href="https://github.com/anikettt21" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          github.com/anikettt21
+        </a>
+      </div>
+    </header>
+
+    <!-- SUMMARY -->
+    <section id="summary" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Summary</h2>
+        <div class="section-line"></div>
+      </div>
+      <p class="summary-text">
+        <strong>Independent developer</strong> skilled at building and shipping real products rapidly using <strong>AI-assisted development</strong>.
+        Shipped a full-stack SaaS currently in customer acquisition, and built multiple live web applications.
+        Fast learner who picks up whatever tech a project needs. Experienced with <strong>modern AI tools and LLMs</strong> to accelerate development cycles.
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">My Library — SaaS for Study Rooms &amp; Libraries</span>
+            <span class="project-featured">Live · Acquiring Customers</span>
+          </div>
+          <p class="project-desc">A full-stack SaaS product built for study room and small library owners in India. Enables digital management of students, fee tracking, attendance, and seat allocation.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">MongoDB</span>
+            <span class="tech-tag">Vercel</span>
+            <span class="tech-tag">Railway</span>
+            <span class="tech-tag">Render</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://my-library-brown.vercel.app" target="_blank" rel="noopener">my-library-brown.vercel.app ↗</a>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">College Anonymous Chat Platform</span>
+          </div>
+          <p class="project-desc">A real-time anonymous chat platform for college and university students to discuss campus topics without revealing identity.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Node.js</span>
+            <span class="tech-tag">Render</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://raisoni-chat-room-1.onrender.com" target="_blank" rel="noopener">onrender.com ↗</a>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">Computer Shop E-Commerce Website</span>
+          </div>
+          <p class="project-desc">A fully functional e-commerce website built for a local computer hardware shop, featuring product listings and a clean shopping interface.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Vercel</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://ctd-hu.vercel.app" target="_blank" rel="noopener">ctd-hu.vercel.app ↗</a>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">Lumina Notes — Personal Notes Web App</span>
+          </div>
+          <p class="project-desc">A minimal, fast personal note-taking web application with a clean UI for quick capture and retrieval.</p>
+          <div class="project-tech">
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">Vercel</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://lumina-notes-zeta.vercel.app" target="_blank" rel="noopener">lumina-notes-zeta.vercel.app ↗</a>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">Study Room Landing Page</span>
+          </div>
+          <p class="project-desc">Marketing and info website built for a local study room business to establish their online presence.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">GitHub Pages</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://anikettt21.github.io/Study.room" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      </div>
+
+      <div class="project-item">
+        <div>
+          <div class="project-header">
+            <span class="project-name">Birthday Surprise Game</span>
+          </div>
+          <p class="project-desc">A fun interactive web experience — users play a small game before receiving a personalised birthday message for their partner.</p>
+          <div class="project-tech">
+            <span class="tech-tag">HTML</span>
+            <span class="tech-tag">CSS</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">GitHub Pages</span>
+          </div>
+        </div>
+        <a class="project-url" href="https://anikettt21.github.io/Birthday" target="_blank" rel="noopener">GitHub Pages ↗</a>
+      </div>
+
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Skills</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-list">
+        <div class="skill-row">
+          <div class="skill-label">Languages &amp; Runtime</div>
+          <div class="skill-values">JavaScript, HTML, CSS</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Databases</div>
+          <div class="skill-values">MongoDB</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Deployment &amp; Hosting</div>
+          <div class="skill-values">Vercel, Railway, Render, GitHub Pages</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">AI IDEs &amp; Dev Tools</div>
+          <div class="skill-values">Cursor, Windsurf (Codeium), GitHub Copilot</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">AI Models &amp; LLMs</div>
+          <div class="skill-values">Claude (Anthropic), ChatGPT (OpenAI), Gemini (Google), Perplexity</div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-label">Core Skills</div>
+          <div class="skill-values">Rapid prototyping, AI-assisted development, product thinking, customer acquisition</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" class="fade-in">
+      <div class="section-header">
+        <h2 class="section-title">Education</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-degree">B.Tech — Computer Science &amp; Engineering</div>
+          <div class="edu-school">GH Raisoni International Skill Tech University, Pune</div>
+        </div>
+        <div class="edu-year">Expected 2029</div>
+      </div>
+    </section>
+
+  </div><!-- /container -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-avail">Open to remote early-stage startup roles &nbsp;·&nbsp; Available immediately</div>
+      <div class="footer-copy">&copy; 2026 Aniket Devidas Gade</div>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
